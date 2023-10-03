@@ -829,19 +829,6 @@ rm -f /root/cert.pem
 print_success "All Packet"
 }
 
-# >> Instal Menu
-function menu(){
-    clear; print_install "Memasang Menu Packet"; cd /root;
-    wget -O ~/menu.zip "${REPO}menu.zip" >/dev/null 2>&1;
-    unzip menu.zip -d /root/menu/ >/dev/null 2>&1;
-    mv /root/menu/menu/menu/* /usr/local/sbin/; chmod +x /usr/local/sbin/*;
-    rm -rf /root/menu.zip /root/menu; clear; cd /root;
-
-    wget ${REPO}botmin.zip > /dev/null 2>&1; 
-    unzip botmin.zip -d /root/ >/dev/null 2>&1;
-    mv botmin /etc; rm *.zip; touch /etc/botmin/var.txt
-}
-
 function profile() {
     clear
 
@@ -972,7 +959,6 @@ clear
     ins_Fail2ban
     ins_epro
     ins_restart
-    menu
     profile
     enable_services
 }
